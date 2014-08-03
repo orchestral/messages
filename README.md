@@ -3,11 +3,11 @@ Notification for Laravel 4
 
 Messages Component bring a unified notification support for Laravel 4.
 
-[![Latest Stable Version](https://poser.pugx.org/orchestra/messages/v/stable.png)](https://packagist.org/packages/orchestra/support)
-[![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads.png)](https://packagist.org/packages/orchestra/support)
-[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/support)
-[![Coverage Status](https://coveralls.io/repos/orchestral/messages/badge.png?branch=master)](https://coveralls.io/r/orchestral/support?branch=master)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/orchestral/messages/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/orchestral/support/)
+[![Latest Stable Version](https://poser.pugx.org/orchestra/messages/v/stable.png)](https://packagist.org/packages/orchestra/messages)
+[![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads.png)](https://packagist.org/packages/orchestra/messages)
+[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/messages)
+[![Coverage Status](https://coveralls.io/repos/orchestral/messages/badge.png?branch=master)](https://coveralls.io/r/orchestral/messages?branch=master)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/orchestral/messages/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/orchestral/messages/)
 
 ## Quick Installation
 
