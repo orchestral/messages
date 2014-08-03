@@ -1,0 +1,39 @@
+{
+	"name": "orchestra/messages",
+	"description": "Messages Component for Orchestra Platform 2",
+	"homepage": "http://orchestraplatform.com/docs/latest/components/messages/",
+	"keywords": ["orchestra-platform", "orchestral", "laravel", "messages", "notification"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mior Muhammad Zaki",
+			"email": "crynobone@gmail.com",
+			"homepage": "https://github.com/crynobone"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Orchestra\\Messages\\" : "src/Messages/"
+		}
+	},
+	"require": {
+		"php": ">=5.4.0"
+	},
+	"require-dev": {
+		"mockery/mockery": "0.9.*",
+		"patchwork/utf8": "1.1.*",
+        "illuminate/container": "4.2.*",
+		"illuminate/session": "4.2.*",
+		"illuminate/support": "4.2.*"
+	},
+	"suggest": {
+		"laravel/framework": "Allow using orchestra/support component outside of Orchestra Platform 2",
+		"orchestra/foundation": "Allow using orchestra/support with Orchestra Platform 2"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.2-dev"
+		}
+	},
+	"minimum-stability": "dev"
+}
