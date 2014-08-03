@@ -15,6 +15,9 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [Usage](#usage)
+  - [Adding a Message](#adding-a-message)
+  - [Extending a Message to Current Request](#extending-a-message-to-current-request)
+  - [Displaying the Message in a View](#displaying-the-message-in-a-view)
 * [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v2-2)
 
 Laravel    | Messages
@@ -67,6 +70,54 @@ You might want to add `Orchestra\Messages\Facade` to class aliases in `app/confi
 
     'Orchestra\Messages' => 'Orchestra\Messages\Facade',
 ),
+```
+
+## Usage
+
+### Adding a Message
+
+Adding a message is as easy as following:
+
+```php
+Orchestra\Messages::add('success', 'A successful message');
+```
+
+You can also chain messages:
+
+```php
+Orchestra\Messages::add('success', 'A successful message')
+    ->add('error', 'Some error');
+```
+
+### Extending a Message to Current Request
+
+There might be situation where you need to extend a message to the current response instead of the following request. You can do this with:
+
+```ogo
+Orchestra\Messages::extend(function ($message) {
+    $message->add('info', 'Read-only mode');
+});
+```
+
+### Displaying the Message in a View
+
+Here's an example how you can display the message:
+
+```php
+<?php
+
+$message = Orchestra\Messages::retrieve();
+
+if ($message instanceof Orchestra\Messages\MessageBag) {
+    foreach (['error', 'info', 'success'] as $key) {
+        if ($message->has($key)) {
+            $message->setFormat(
+                '<div class="alert alert-'.$key.'">:message</div>'
+            );
+            echo implode('', $message->get($key));
+        }
+    }
+}
 ```
 
 ## Resources
