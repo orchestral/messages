@@ -1,6 +1,6 @@
 {
 	"name": "orchestra/messages",
-	"description": "Messages Component for Orchestra Platform 2",
+	"description": "Messages Component for Laravel 4 and Orchestra Platform 2",
 	"homepage": "http://orchestraplatform.com/docs/latest/components/messages/",
 	"keywords": ["orchestra-platform", "orchestral", "laravel", "messages", "notification"],
 	"license": "MIT",
