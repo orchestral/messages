@@ -5,9 +5,9 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
 
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/v/stable.png)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads.png)](https://packagist.org/packages/orchestra/messages)
-[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=2.2)](https://travis-ci.org/orchestral/messages)
-[![Coverage Status](https://coveralls.io/repos/orchestral/messages/badge.png?branch=2.2)](https://coveralls.io/r/orchestral/messages?branch=2.2)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/orchestral/messages/badges/quality-score.png?b=2.2)](https://scrutinizer-ci.com/g/orchestral/messages/)
+[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/messages)
+[![Coverage Status](https://coveralls.io/repos/orchestral/messages/badge.png?branch=master)](https://coveralls.io/r/orchestral/messages?branch=master)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/orchestral/messages/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/orchestral/messages/)
 
 ## Table of Content
 
@@ -18,13 +18,14 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
   - [Adding a Message](#adding-a-message)
   - [Extending a Message to Current Request](#extending-a-message-to-current-request)
   - [Displaying the Message in a View](#displaying-the-message-in-a-view)
-* [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v2-2)
+* [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v2-3)
 
 ## Version Compatibility
 
 Laravel    | Messages
 :----------|:----------
  4.2.x     | 2.2.x@dev
+ 4.3.x     | 2.3.x@dev
 
 ## Installation
 
@@ -33,7 +34,7 @@ To install through composer, simply put the following in your `composer.json` fi
 ```json
 {
     "require": {
-        "orchestra/messages": "2.2.*"
+        "orchestra/messages": "2.3.*"
     }
 }
 ```
@@ -44,7 +45,7 @@ And then run `composer install` from the terminal.
 
 Above installation can also be simplify by using the following command:
 
-    composer require "orchestra/messages=2.2.*"
+    composer require "orchestra/messages=2.3.*"
 
 Next add the service provider in `app/config/app.php`.
 
