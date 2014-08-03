@@ -20,6 +20,8 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
   - [Displaying the Message in a View](#displaying-the-message-in-a-view)
 * [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v2-2)
 
+## Version Compatibility
+
 Laravel    | Messages
 :----------|:----------
  4.2.x     | 2.2.x@dev
