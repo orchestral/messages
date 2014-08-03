@@ -24,7 +24,7 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
 
 Laravel    | Messages
 :----------|:----------
- 4.2.x     | 2.2.x@dev
+ 4.2.x     | 2.2.x
  4.3.x     | 2.3.x@dev
 
 ## Installation
