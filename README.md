@@ -5,9 +5,9 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
 
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/v/stable.png)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads.png)](https://packagist.org/packages/orchestra/messages)
-[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/messages)
-[![Coverage Status](https://coveralls.io/repos/orchestral/messages/badge.png?branch=master)](https://coveralls.io/r/orchestral/messages?branch=master)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/orchestral/messages/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/orchestral/messages/)
+[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=2.2)](https://travis-ci.org/orchestral/messages)
+[![Coverage Status](https://coveralls.io/repos/orchestral/messages/badge.png?branch=2.2)](https://coveralls.io/r/orchestral/messages?branch=2.2)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/orchestral/messages/badges/quality-score.png?b=2.2)](https://scrutinizer-ci.com/g/orchestral/messages/)
 
 ## Table of Content
 
