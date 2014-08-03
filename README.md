@@ -93,7 +93,7 @@ Orchestra\Messages::add('success', 'A successful message')
 
 There might be situation where you need to extend a message to the current response instead of the following request. You can do this with:
 
-```ogo
+```php
 Orchestra\Messages::extend(function ($message) {
     $message->add('info', 'Read-only mode');
 });
