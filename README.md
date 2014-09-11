@@ -1,7 +1,7 @@
-Messages Component for Laravel 4 and Orchestra Platform 2
+Messages Component for Laravel and Orchestra Platform
 ==============
 
-Messages Component bring a unified notification support for Laravel 4 and Orchestra Platform 2.
+Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/v/stable.png)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads.png)](https://packagist.org/packages/orchestra/messages)
@@ -18,14 +18,14 @@ Messages Component bring a unified notification support for Laravel 4 and Orches
   - [Adding a Message](#adding-a-message)
   - [Extending a Message to Current Request](#extending-a-message-to-current-request)
   - [Displaying the Message in a View](#displaying-the-message-in-a-view)
-* [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v2-3)
+* [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v3-0)
 
 ## Version Compatibility
 
 Laravel    | Messages
 :----------|:----------
  4.2.x     | 2.2.x
- 4.3.x     | 2.3.x@dev
+ 5.0.x     | 3.0.x@dev
 
 ## Installation
 
@@ -34,7 +34,7 @@ To install through composer, simply put the following in your `composer.json` fi
 ```json
 {
     "require": {
-        "orchestra/messages": "2.3.*"
+        "orchestra/messages": "3.0.*"
     }
 }
 ```
@@ -45,7 +45,7 @@ And then run `composer install` from the terminal.
 
 Above installation can also be simplify by using the following command:
 
-    composer require "orchestra/messages=2.3.*"
+    composer require "orchestra/messages=3.0.*"
 
 Next add the service provider in `app/config/app.php`.
 
