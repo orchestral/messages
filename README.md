@@ -71,7 +71,7 @@ You might want to add `Orchestra\Messages\Facade` to class aliases in `app/confi
 
     // ...
 
-    'Orchestra\Messages' => 'Orchestra\Messages\Facade',
+    'Orchestra\Messages' => 'Orchestra\Support\Facades\Messages',
 ),
 ```
 
