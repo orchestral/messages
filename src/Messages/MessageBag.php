@@ -2,8 +2,10 @@
 
 use Closure;
 use Illuminate\Session\Store as SessionStore;
+use Illuminate\Support\MessageBag as Message;
+use Orchestra\Contracts\Messages\MessageBag as MessageBagContract;
 
-class MessageBag extends \Illuminate\Support\MessageBag
+class MessageBag extends Message implements MessageBagContract
 {
     /**
      * The session store instance.
@@ -43,6 +45,20 @@ class MessageBag extends \Illuminate\Support\MessageBag
     }
 
     /**
+     * Extend Messages instance from session.
+     *
+     * @param  \Closure $callback
+     * @return static
+     */
+    public function extend(Closure $callback)
+    {
+        $instance = $this->retrieve();
+        call_user_func($callback, $instance);
+
+        return $instance;
+    }
+
+    /**
      * Retrieve Message instance from Session, the data should be in
      * serialize, so we need to unserialize it first.
      *
@@ -68,20 +84,6 @@ class MessageBag extends \Illuminate\Support\MessageBag
         }
 
         return $this->instance;
-    }
-
-    /**
-     * Extend Messages instance from session.
-     *
-     * @param  \Closure $callback
-     * @return static
-     */
-    public function extend(Closure $callback)
-    {
-        $instance = $this->retrieve();
-        call_user_func($callback, $instance);
-
-        return $instance;
     }
 
     /**
