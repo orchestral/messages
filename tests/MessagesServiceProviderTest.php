@@ -23,7 +23,7 @@ class MessagesServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = m::mock('\Illuminate\Container\Container');
         $session = m::mock('\Illuminate\Session\Store');
 
-        $app->shouldReceive('bindShared')->once()->with('orchestra.messages', m::type('Closure'))
+        $app->shouldReceive('singleton')->once()->with('orchestra.messages', m::type('Closure'))
                 ->andReturnUsing(function ($n, $c) use ($app) {
                     $c($app);
                 })
