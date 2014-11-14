@@ -85,9 +85,8 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('has')->once()->andReturn(true)
-            ->shouldReceive('get')->once()
-                ->andReturn('a:2:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}s:3:"bye";a:1:{i:0;s:7:"Goodbye";}}')
-            ->shouldReceive('forget')->once()->andReturn(true);
+            ->shouldReceive('pull')->once()
+                ->andReturn('a:2:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}s:3:"bye";a:1:{i:0;s:7:"Goodbye";}}');
 
         $retrieve = (new MessageBag)->setSessionStore($session)->retrieve();
         $retrieve->setFormat();
@@ -107,9 +106,8 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('has')->once()->andReturn(true)
-            ->shouldReceive('get')->once()
-                ->andReturn('a:1:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}}')
-            ->shouldReceive('forget')->once()->andReturn(true);
+            ->shouldReceive('pull')->once()
+                ->andReturn('a:1:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}}');
 
         $callback = function ($msg) {
             $msg->add('hello', 'Hi Orchestra Platform');

@@ -73,10 +73,8 @@ class MessageBag extends Message implements MessageBagContract
             $this->instance->setSessionStore($this->session);
 
             if ($this->session->has('message')) {
-                $messages = @unserialize($this->session->get('message', ''));
+                $messages = unserialize($this->session->pull('message'));
             }
-
-            $this->session->forget('message');
 
             if (is_array($messages)) {
                 $this->instance->merge($messages);
