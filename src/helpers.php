@@ -6,10 +6,10 @@ if (! function_exists('messages')) {
      *
      * @param  string  $key
      * @param  string  $message
-     * @return $this
+     * @return \Orchestra\Messages\MessageBag
      */
     function messages($key, $message)
     {
-        app('orchestra.messages')->add($key, $message);
+        return app('orchestra.messages')->add($key, $message);
     }
 }
