@@ -6,9 +6,9 @@ Messages Component bring a unified notification support for Laravel and Orchestr
 [![Latest Stable Version](https://img.shields.io/github/release/orchestral/messages.svg?style=flat)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://img.shields.io/packagist/dt/orchestra/messages.svg?style=flat)](https://packagist.org/packages/orchestra/messages)
 [![MIT License](https://img.shields.io/packagist/l/orchestra/messages.svg?style=flat)](https://packagist.org/packages/orchestra/messages)
-[![Build Status](https://img.shields.io/travis/orchestral/messages/master.svg?style=flat)](https://travis-ci.org/orchestral/messages)
-[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/master.svg?style=flat)](https://coveralls.io/r/orchestral/messages?branch=master)
-[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/master.svg?style=flat)](https://scrutinizer-ci.com/g/orchestral/messages/)
+[![Build Status](https://img.shields.io/travis/orchestral/messages/3.0.svg?style=flat)](https://travis-ci.org/orchestral/messages)
+[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/3.0.svg?style=flat)](https://coveralls.io/r/orchestral/messages?branch=3.0)
+[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/3.0.svg?style=flat)](https://scrutinizer-ci.com/g/orchestral/messages/)
 
 ## Table of Content
 
@@ -26,7 +26,7 @@ Messages Component bring a unified notification support for Laravel and Orchestr
 Laravel    | Messages
 :----------|:----------
  4.2.x     | 2.2.x
- 5.0.x     | 3.0.x@dev
+ 5.0.x     | 3.0.x
 
 ## Installation
 
@@ -55,12 +55,12 @@ Next add the service provider in `app/config/app.php`.
 Add `Orchestra\Messages\MessagesServiceProvider` service provider in `app/config/app.php`.
 
 ```php
-'providers' => array(
+'providers' => [
 
     // ...
 
     'Orchestra\Messages\MessagesServiceProvider',
-),
+],
 ```
 
 ### Aliases
@@ -68,12 +68,12 @@ Add `Orchestra\Messages\MessagesServiceProvider` service provider in `app/config
 You might want to add `Orchestra\Support\Facades\Messages` to class aliases in `app/config/app.php`:
 
 ```php
-'aliases' => array(
+'aliases' => [
 
     // ...
 
-    'Orchestra\Messages' => 'Orchestra\Support\Facades\Messages',
-),
+    'Messages' => 'Orchestra\Support\Facades\Messages',
+],
 ```
 
 ## Usage
@@ -83,13 +83,13 @@ You might want to add `Orchestra\Support\Facades\Messages` to class aliases in `
 Adding a message is as easy as following:
 
 ```php
-Orchestra\Messages::add('success', 'A successful message');
+Messages::add('success', 'A successful message');
 ```
 
 You can also chain messages:
 
 ```php
-Orchestra\Messages::add('success', 'A successful message')
+Messages::add('success', 'A successful message')
     ->add('error', 'Some error');
 ```
 
@@ -98,7 +98,7 @@ Orchestra\Messages::add('success', 'A successful message')
 There might be situation where you need to extend a message to the current response instead of the following request. You can do this with:
 
 ```php
-Orchestra\Messages::extend(function ($message) {
+Messages::extend(function ($message) {
     $message->add('info', 'Read-only mode');
 });
 ```
@@ -110,7 +110,7 @@ Here's an example how you can display the message:
 ```php
 <?php
 
-$message = Orchestra\Messages::retrieve();
+$message = Messages::retrieve();
 
 if ($message instanceof Orchestra\Messages\MessageBag) {
     foreach (['error', 'info', 'success'] as $key) {
