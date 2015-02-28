@@ -49,11 +49,10 @@ Above installation can also be simplify by using the following command:
 
     composer require "orchestra/messages=3.1.*"
 
-Next add the service provider in `app/config/app.php`.
 
 ## Configuration
 
-Add `Orchestra\Messages\MessagesServiceProvider` service provider in `app/config/app.php`.
+Add `Orchestra\Messages\MessagesServiceProvider` service provider in `config/app.php`.
 
 ```php
 'providers' => [
@@ -66,7 +65,7 @@ Add `Orchestra\Messages\MessagesServiceProvider` service provider in `app/config
 
 ### Aliases
 
-You might want to add `Orchestra\Support\Facades\Messages` to class aliases in `app/config/app.php`:
+You might want to add `Orchestra\Support\Facades\Messages` to class aliases in `config/app.php`:
 
 ```php
 'aliases' => [
