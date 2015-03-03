@@ -6,6 +6,7 @@ if (! function_exists('messages')) {
      *
      * @param  string  $key
      * @param  string  $message
+     *
      * @return \Orchestra\Messages\MessageBag
      */
     function messages($key, $message)

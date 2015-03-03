@@ -25,6 +25,7 @@ class MessageBag extends Message implements MessageBagContract
      * Set the session store.
      *
      * @param  \Illuminate\Session\Store   $session
+     *
      * @return $this
      */
     public function setSessionStore(SessionStore $session)
@@ -48,6 +49,7 @@ class MessageBag extends Message implements MessageBagContract
      * Extend Messages instance from session.
      *
      * @param  \Closure $callback
+     *
      * @return static
      */
     public function extend(Closure $callback)
@@ -69,7 +71,7 @@ class MessageBag extends Message implements MessageBagContract
         $messages = null;
 
         if (! isset($this->instance)) {
-            $this->instance = new static;
+            $this->instance = new static();
             $this->instance->setSessionStore($this->session);
 
             if ($this->session->has('message')) {
