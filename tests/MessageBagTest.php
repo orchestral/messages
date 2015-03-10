@@ -22,15 +22,15 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
     {
         $session = m::mock('\Illuminate\Session\Store');
 
-        $message = (new MessageBag)->setSessionStore($session);
+        $message = (new MessageBag())->setSessionStore($session);
         $message->add('welcome', 'Hello world');
         $message->setFormat();
 
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $message);
-        $this->assertEquals(array('Hello world'), $message->get('welcome'));
+        $this->assertEquals(['Hello world'], $message->get('welcome'));
 
         $message->add('welcome', 'Hi Foobar')->add('welcome', 'Heya Admin');
-        $this->assertEquals(array('Hello world', 'Hi Foobar', 'Heya Admin'), $message->get('welcome'));
+        $this->assertEquals(['Hello world', 'Hi Foobar', 'Heya Admin'], $message->get('welcome'));
 
         $this->assertEquals($session, $message->getSessionStore());
     }
@@ -45,12 +45,12 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('flash')->once()->andReturn(true);
 
-        with(new MessageBag)->setSessionStore($session)->save();
+        with(new MessageBag())->setSessionStore($session)->save();
     }
 
     /**
      * Test serializing and storing Orchestra\Messages\MessageBag over
-     * Session
+     * Session.
      *
      * @test
      */
@@ -60,7 +60,7 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
 
         $session->shouldReceive('flash')->once()->andReturn(true);
 
-        $message = (new MessageBag)->setSessionStore($session);
+        $message = (new MessageBag())->setSessionStore($session);
         $message->add('hello', 'Hi World');
         $message->add('bye', 'Goodbye');
 
@@ -77,7 +77,7 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Test un-serializing and retrieving Orchestra\Messages\MessageBag over
-     * Session
+     * Session.
      *
      * @test
      */
@@ -88,17 +88,17 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
             ->shouldReceive('pull')->once()
                 ->andReturn('a:2:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}s:3:"bye";a:1:{i:0;s:7:"Goodbye";}}');
 
-        $retrieve = (new MessageBag)->setSessionStore($session)->retrieve();
+        $retrieve = (new MessageBag())->setSessionStore($session)->retrieve();
         $retrieve->setFormat();
 
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
-        $this->assertEquals(array('Hi World'), $retrieve->get('hello'));
-        $this->assertEquals(array('Goodbye'), $retrieve->get('bye'));
+        $this->assertEquals(['Hi World'], $retrieve->get('hello'));
+        $this->assertEquals(['Goodbye'], $retrieve->get('bye'));
     }
 
     /**
      * Test un-serializing and extending Orchestra\Messages\MessageBag over
-     * Session
+     * Session.
      *
      * @test
      */
@@ -113,7 +113,7 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
             $msg->add('hello', 'Hi Orchestra Platform');
         };
 
-        $stub = (new MessageBag)->setSessionStore($session);
+        $stub   = (new MessageBag())->setSessionStore($session);
         $output = $stub->extend($callback);
 
         $retrieve = $stub->retrieve();
@@ -121,6 +121,6 @@ class MessageBagTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $output);
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
-        $this->assertEquals(array('Hi World', 'Hi Orchestra Platform'), $retrieve->get('hello'));
+        $this->assertEquals(['Hi World', 'Hi Orchestra Platform'], $retrieve->get('hello'));
     }
 }
