@@ -20,7 +20,7 @@ class MessagesServiceProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function testRegisterMethod()
     {
-        $app = m::mock('\Illuminate\Container\Container');
+        $app     = m::mock('\Illuminate\Container\Container');
         $session = m::mock('\Illuminate\Session\Store');
 
         $app->shouldReceive('singleton')->once()->with('orchestra.messages', m::type('Closure'))
@@ -41,7 +41,7 @@ class MessagesServiceProviderTest extends \PHPUnit_Framework_TestCase
     public function testBootMethod()
     {
         $app = [
-            'router' => $router = m::mock('\Illuminate\Routing\Router'),
+            'router'             => $router = m::mock('\Illuminate\Routing\Router'),
             'orchestra.messages' => $messages = m::mock('\Orchestra\Message\MessageBag'),
         ];
 
