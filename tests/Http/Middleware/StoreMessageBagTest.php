@@ -1,6 +1,5 @@
 <?php namespace Orchestra\Messages\Http\Middleware\TestCase;
 
-use ArrayAccess;
 use Mockery as m;
 use Illuminate\Http\Request;
 use Orchestra\Contracts\Messages\MessageBag;
