@@ -32,26 +32,4 @@ class MessagesServiceProviderTest extends \PHPUnit_Framework_TestCase
         $stub = new MessagesServiceProvider($app);
         $this->assertNull($stub->register());
     }
-
-    /**
-     * Test Orchestra\Support\MessagesServiceProvider::boot() method.
-     *
-     * @test
-     */
-    public function testBootMethod()
-    {
-        $app = [
-            'router'             => $router = m::mock('\Illuminate\Routing\Router'),
-            'orchestra.messages' => $messages = m::mock('\Orchestra\Message\MessageBag'),
-        ];
-
-        $router->shouldReceive('after')->once()->with(m::type('Closure'))
-                ->andReturnUsing(function ($c) {
-                    $c();
-                });
-        $messages->shouldReceive('save')->once();
-
-        $stub = new MessagesServiceProvider($app);
-        $this->assertNull($stub->boot());
-    }
 }
