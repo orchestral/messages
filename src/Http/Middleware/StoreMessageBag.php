@@ -33,7 +33,7 @@ class StoreMessageBag
     {
         $response = $next($request);
 
-        $this->app['orchestra.messages']->save();
+        $this->app->make('orchestra.messages')->save();
 
         return $response;
     }

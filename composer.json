@@ -27,8 +27,8 @@
 	"require-dev": {
 		"mockery/mockery": "0.9.*",
 		"illuminate/container": "5.1.*",
-		"illuminate/session": "5.1.*",
-		"illuminate/support": "5.1.*"
+		"illuminate/http": "5.1.*",
+		"illuminate/session": "5.1.*"
 	},
 	"suggest": {
 		"laravel/framework": "Allow using orchestra/support component outside of Orchestra Platform (~5.1).",
