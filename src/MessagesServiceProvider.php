@@ -1,9 +1,25 @@
 <?php namespace Orchestra\Messages;
 
-use Illuminate\Support\ServiceProvider;
+use Orchestra\Support\Providers\MiddlewareServiceProvider;
 
-class MessagesServiceProvider extends ServiceProvider
+class MessagesServiceProvider extends MiddlewareServiceProvider
 {
+    /**
+     * The application's middleware stack.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        Http\Middleware\StoreMessageBag::class,
+    ];
+
+    /**
+     * The application's route middleware.
+     *
+     * @var array
+     */
+    protected $routeMiddleware = [];
+
     /**
      * Register the service provider.
      *
@@ -13,20 +29,6 @@ class MessagesServiceProvider extends ServiceProvider
     {
         $this->app->singleton('orchestra.messages', function ($app) {
             return (new MessageBag())->setSessionStore($app['session.store']);
-        });
-    }
-
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $app = $this->app;
-
-        $app['router']->after(function () use ($app) {
-            $app['orchestra.messages']->save();
         });
     }
 }

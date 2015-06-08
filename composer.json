@@ -22,7 +22,7 @@
 	"require": {
 		"php": ">=5.5.0",
 		"orchestra/contracts": "3.2.*",
-		"orchestra/support-facades": "3.2.*"
+		"orchestra/support": "3.2.*"
 	},
 	"require-dev": {
 		"mockery/mockery": "0.9.*",
