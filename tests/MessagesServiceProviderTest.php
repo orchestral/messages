@@ -27,7 +27,7 @@ class MessagesServiceProviderTest extends \PHPUnit_Framework_TestCase
                 ->andReturnUsing(function ($n, $c) use ($app) {
                     $c($app);
                 })
-            ->shouldReceive('offsetGet')->once()->with('session.store')->andReturn($session);
+            ->shouldReceive('make')->once()->with('session.store')->andReturn($session);
 
         $stub = new MessagesServiceProvider($app);
         $this->assertNull($stub->register());
