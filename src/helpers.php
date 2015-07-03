@@ -11,6 +11,6 @@ if (! function_exists('messages')) {
      */
     function messages($key, $message)
     {
-        return app('orchestra.messages')->add($key, $message);
+        return app('orchestra.messages')->add($key, value($message));
     }
 }
