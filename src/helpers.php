@@ -5,7 +5,7 @@ if (! function_exists('messages')) {
      * Add a message to the bag.
      *
      * @param  string  $key
-     * @param  string  $message
+     * @param  string|callable  $message
      *
      * @return \Orchestra\Messages\MessageBag
      */
