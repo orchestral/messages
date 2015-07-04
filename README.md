@@ -59,7 +59,7 @@ Add `Orchestra\Messages\MessagesServiceProvider` service provider in `config/app
 
     // ...
 
-    'Orchestra\Messages\MessagesServiceProvider',
+    Orchestra\Messages\MessagesServiceProvider::class,
 ],
 ```
 
@@ -72,7 +72,7 @@ You might want to add `Orchestra\Support\Facades\Messages` to class aliases in `
 
     // ...
 
-    'Messages' => 'Orchestra\Support\Facades\Messages',
+    'Messages' => Orchestra\Support\Facades\Messages::class,
 ],
 ```
 
@@ -113,11 +113,10 @@ Here's an example how you can display the message:
 $message = Messages::retrieve();
 
 if ($message instanceof Orchestra\Messages\MessageBag) {
+    $message->setFormat('<div class="alert alert-:key">:message</div>');
+
     foreach (['error', 'info', 'success'] as $key) {
         if ($message->has($key)) {
-            $message->setFormat(
-                '<div class="alert alert-'.$key.'">:message</div>'
-            );
             echo implode('', $message->get($key));
         }
     }
