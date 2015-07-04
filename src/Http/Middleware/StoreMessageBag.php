@@ -5,7 +5,7 @@ use Illuminate\Contracts\Foundation\Application;
 
 class StoreMessageBag
 {
-     /**
+    /**
      * The application implementation.
      *
      * @var \Illuminate\Contracts\Foundation\Application
@@ -38,4 +38,3 @@ class StoreMessageBag
         return $response;
     }
 }
-
