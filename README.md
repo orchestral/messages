@@ -3,12 +3,12 @@ Messages Component for Laravel and Orchestra Platform
 
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
-[![Latest Stable Version](https://img.shields.io/github/release/orchestral/messages.svg?style=flat)](https://packagist.org/packages/orchestra/messages)
-[![Total Downloads](https://img.shields.io/packagist/dt/orchestra/messages.svg?style=flat)](https://packagist.org/packages/orchestra/messages)
-[![MIT License](https://img.shields.io/packagist/l/orchestra/messages.svg?style=flat)](https://packagist.org/packages/orchestra/messages)
-[![Build Status](https://img.shields.io/travis/orchestral/messages/3.1.svg?style=flat)](https://travis-ci.org/orchestral/messages)
-[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/3.1.svg?style=flat)](https://coveralls.io/r/orchestral/messages?branch=3.1)
-[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/3.1.svg?style=flat)](https://scrutinizer-ci.com/g/orchestral/messages/)
+[![Latest Stable Version](https://img.shields.io/github/release/orchestral/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
+[![Total Downloads](https://img.shields.io/packagist/dt/orchestra/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
+[![MIT License](https://img.shields.io/packagist/l/orchestra/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
+[![Build Status](https://img.shields.io/travis/orchestral/messages/3.1.svg?style=flat-square)](https://travis-ci.org/orchestral/messages)
+[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/3.1.svg?style=flat-square)](https://coveralls.io/r/orchestral/messages?branch=3.1)
+[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/3.1.svg?style=flat-square)](https://scrutinizer-ci.com/g/orchestral/messages/)
 
 ## Table of Content
 
