@@ -1,43 +1,43 @@
 {
-	"name": "orchestra/messages",
-	"description": "Messages Component for Laravel and Orchestra Platform",
-	"homepage": "http://orchestraplatform.com/docs/latest/components/messages/",
-	"keywords": ["orchestra-platform", "orchestral", "laravel", "messages", "notification"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Mior Muhammad Zaki",
-			"email": "crynobone@gmail.com",
-			"homepage": "https://github.com/crynobone"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Orchestra\\Messages\\" : "src/"
-		},
-		"files": [
-			"src/helpers.php"
-		]
-	},
-	"require": {
-		"php": ">=5.5.0",
-		"orchestra/contracts": "~3.2.0",
-		"orchestra/support": "~3.2.0"
-	},
-	"require-dev": {
-		"mockery/mockery": "0.9.*",
-		"illuminate/container": "~5.2.0",
-		"illuminate/http": "~5.2.0",
-		"illuminate/session": "~5.2.0"
-	},
-	"suggest": {
-		"laravel/framework": "Allow using orchestra/support component outside of Orchestra Platform (~5.2).",
-		"orchestra/foundation": "Allow using orchestra/support with Orchestra Platform (~3.2)."
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "3.2-dev"
-		}
-	},
-	"minimum-stability": "dev"
+    "name": "orchestra/messages",
+    "description": "Messages Component for Laravel and Orchestra Platform",
+    "homepage": "http://orchestraplatform.com/docs/latest/components/messages/",
+    "keywords": ["orchestra-platform", "orchestral", "laravel", "messages", "notification"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com",
+            "homepage": "https://github.com/crynobone"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Orchestra\\Messages\\" : "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "orchestra/contracts": "~3.2.0",
+        "orchestra/support": "~3.2.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "illuminate/container": "~5.2.0",
+        "illuminate/http": "~5.2.0",
+        "illuminate/session": "~5.2.0"
+    },
+    "suggest": {
+        "laravel/framework": "Allow using orchestra/support component outside of Orchestra Platform (~5.2).",
+        "orchestra/foundation": "Allow using orchestra/support with Orchestra Platform (~3.2)."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.2-dev"
+        }
+    },
+    "minimum-stability": "dev"
 }
