@@ -1,6 +1,8 @@
 Messages Component for Laravel and Orchestra Platform
 ==============
 
+[![Join the chat at https://gitter.im/orchestral/platform/components](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/orchestral/platform/components?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
 [![Latest Stable Version](https://img.shields.io/github/release/orchestral/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
