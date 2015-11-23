@@ -31,8 +31,8 @@
         "illuminate/session": "~5.2.0"
     },
     "suggest": {
-        "laravel/framework": "Allow using orchestra/support component outside of Orchestra Platform (~5.2).",
-        "orchestra/foundation": "Allow using orchestra/support with Orchestra Platform (~3.2)."
+        "laravel/framework": "Allow using orchestra/messages component outside of Orchestra Platform (~5.2).",
+        "orchestra/foundation": "Allow using orchestra/messages with Orchestra Platform (~3.2)."
     },
     "extra": {
         "branch-alias": {
