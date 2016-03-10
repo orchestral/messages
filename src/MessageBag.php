@@ -71,7 +71,7 @@ class MessageBag extends Message implements MessageBagContract
     {
         $messages = null;
 
-        if (! isset($this->instance)) {
+        if (is_null($this->instance)) {
             $this->instance = new static();
             $this->instance->setSessionStore($this->session);
 
