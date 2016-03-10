@@ -30,7 +30,8 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function setSessionStore(SessionStore $session)
     {
-        $this->session = $session;
+        $this->session  = $session;
+        $this->instance = null;
 
         return $this;
     }
@@ -70,7 +71,7 @@ class MessageBag extends Message implements MessageBagContract
     {
         $messages = null;
 
-        if (! isset($this->instance)) {
+        if (is_null($this->instance)) {
             $this->instance = new static();
             $this->instance->setSessionStore($this->session);
 
@@ -94,6 +95,7 @@ class MessageBag extends Message implements MessageBagContract
     public function save()
     {
         $this->session->flash('message', $this->serialize());
+        $this->instance = null;
     }
 
     /**
