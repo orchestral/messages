@@ -1,4 +1,6 @@
-<?php namespace Orchestra\Messages\Http\Middleware;
+<?php
+
+namespace Orchestra\Messages\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Foundation\Application;

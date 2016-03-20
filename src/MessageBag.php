@@ -1,4 +1,6 @@
-<?php namespace Orchestra\Messages;
+<?php
+
+namespace Orchestra\Messages;
 
 use Closure;
 use Illuminate\Session\Store as SessionStore;
