@@ -58,7 +58,8 @@ class MessageBag extends Message implements MessageBagContract
     public function extend(Closure $callback)
     {
         $instance = $this->retrieve();
-        call_user_func($callback, $instance);
+
+        $callback($instance);
 
         return $instance;
     }
