@@ -1,4 +1,6 @@
-<?php namespace Orchestra\Messages\Http\Middleware\TestCase;
+<?php
+
+namespace Orchestra\Messages\Http\Middleware\TestCase;
 
 use Mockery as m;
 use Illuminate\Http\Request;
