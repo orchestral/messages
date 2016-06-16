@@ -1,4 +1,6 @@
-<?php namespace Orchestra\Messages\TestCase;
+<?php
+
+namespace Orchestra\Messages\TestCase;
 
 use Mockery as m;
 use Orchestra\Messages\MessageBag;
