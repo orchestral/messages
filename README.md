@@ -6,9 +6,9 @@ Messages Component bring a unified notification support for Laravel and Orchestr
 [![Latest Stable Version](https://img.shields.io/github/release/orchestral/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://img.shields.io/packagist/dt/orchestra/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
 [![MIT License](https://img.shields.io/packagist/l/orchestra/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
-[![Build Status](https://img.shields.io/travis/orchestral/messages/3.4.svg?style=flat-square)](https://travis-ci.org/orchestral/messages)
-[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/3.4.svg?style=flat-square)](https://coveralls.io/r/orchestral/messages?branch=3.4)
-[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/3.4.svg?style=flat-square)](https://scrutinizer-ci.com/g/orchestral/messages/)
+[![Build Status](https://img.shields.io/travis/orchestral/messages/master.svg?style=flat-square)](https://travis-ci.org/orchestral/messages)
+[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/master.svg?style=flat-square)](https://coveralls.io/r/orchestral/messages?branch=master)
+[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/orchestral/messages/)
 
 ## Table of Content
 
@@ -19,7 +19,7 @@ Messages Component bring a unified notification support for Laravel and Orchestr
   - [Adding a Message](#adding-a-message)
   - [Extending a Message to Current Request](#extending-a-message-to-current-request)
   - [Displaying the Message in a View](#displaying-the-message-in-a-view)
-* [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v3-4)
+* [Change Log](http://orchestraplatform.com/docs/latest/components/messages/changes#v3-5)
 
 ## Version Compatibility
 
@@ -31,6 +31,7 @@ Laravel    | Messages
  5.2.x     | 3.2.x
  5.3.x     | 3.3.x
  5.4.x     | 3.4.x
+ 5.5.x     | 3.5.x@dev
 
 ## Installation
 
