@@ -3,7 +3,7 @@
 namespace Orchestra\Messages;
 
 use Closure;
-use Illuminate\Session\Store as SessionStore;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\MessageBag as Message;
 use Orchestra\Contracts\Messages\MessageBag as MessageBagContract;
 
@@ -12,7 +12,7 @@ class MessageBag extends Message implements MessageBagContract
     /**
      * The session store instance.
      *
-     * @var \Illuminate\Session\Store
+     * @var \Illuminate\Contracts\Session\Session
      */
     protected $session;
 
@@ -26,11 +26,11 @@ class MessageBag extends Message implements MessageBagContract
     /**
      * Set the session store.
      *
-     * @param  \Illuminate\Session\Store   $session
+     * @param  \Illuminate\Contracts\Session\Session  $session
      *
      * @return $this
      */
-    public function setSessionStore(SessionStore $session)
+    public function setSessionStore(Session $session)
     {
         $this->session  = $session;
         $this->instance = null;
@@ -41,7 +41,7 @@ class MessageBag extends Message implements MessageBagContract
     /**
      * Get the session store.
      *
-     * @return \Illuminate\Session\Store
+     * @return \Illuminate\Contracts\Session\Session
      */
     public function getSessionStore()
     {
@@ -51,7 +51,7 @@ class MessageBag extends Message implements MessageBagContract
     /**
      * Extend Messages instance from session.
      *
-     * @param  \Closure $callback
+     * @param  \Closure  $callback
      *
      * @return static
      */
