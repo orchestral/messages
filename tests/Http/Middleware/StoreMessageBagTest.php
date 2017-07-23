@@ -4,11 +4,12 @@ namespace Orchestra\Messages\Http\Middleware\TestCase;
 
 use Mockery as m;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\TestCase;
 use Orchestra\Contracts\Messages\MessageBag;
 use Illuminate\Contracts\Foundation\Application;
 use Orchestra\Messages\Http\Middleware\StoreMessageBag;
 
-class StoreMessageBagTest extends \PHPUnit_Framework_TestCase
+class StoreMessageBagTest extends TestCase
 {
     /**
      * Teardown the test environment.

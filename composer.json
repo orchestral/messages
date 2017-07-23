@@ -28,7 +28,8 @@
         "illuminate/container": "~5.5.0",
         "illuminate/http": "~5.5.0",
         "illuminate/session": "~5.5.0",
-        "mockery/mockery": "^0.9.4"
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "~5.7 || ~6.0"
     },
     "extra": {
         "branch-alias": {

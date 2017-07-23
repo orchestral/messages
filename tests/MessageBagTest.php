@@ -3,9 +3,10 @@
 namespace Orchestra\Messages\TestCase;
 
 use Mockery as m;
+use PHPUnit\Framework\TestCase;
 use Orchestra\Messages\MessageBag;
 
-class MessageBagTest extends \PHPUnit_Framework_TestCase
+class MessageBagTest extends TestCase
 {
     /**
      * Teardown the test environment.
