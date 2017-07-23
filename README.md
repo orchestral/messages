@@ -3,12 +3,11 @@ Messages Component for Laravel and Orchestra Platform
 
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
-[![Latest Stable Version](https://img.shields.io/github/release/orchestral/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
-[![Total Downloads](https://img.shields.io/packagist/dt/orchestra/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
-[![MIT License](https://img.shields.io/packagist/l/orchestra/messages.svg?style=flat-square)](https://packagist.org/packages/orchestra/messages)
-[![Build Status](https://img.shields.io/travis/orchestral/messages/master.svg?style=flat-square)](https://travis-ci.org/orchestral/messages)
-[![Coverage Status](https://img.shields.io/coveralls/orchestral/messages/master.svg?style=flat-square)](https://coveralls.io/r/orchestral/messages?branch=master)
-[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/orchestral/messages/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/orchestral/messages/)
+[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/messages)
+[![Latest Stable Version](https://poser.pugx.org/orchestra/messages/version)](https://packagist.org/packages/orchestra/messages)
+[![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads)](https://packagist.org/packages/orchestra/messages)
+[![Latest Unstable Version](https://poser.pugx.org/orchestra/messages/v/unstable)](//packagist.org/packages/orchestra/messages)
+[![License](https://poser.pugx.org/orchestra/messages/license)](https://packagist.org/packages/orchestra/messages)
 
 ## Table of Content
 
