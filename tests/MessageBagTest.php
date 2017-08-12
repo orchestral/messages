@@ -48,7 +48,7 @@ class MessageBagTest extends TestCase
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('flash')->once()->andReturn(true);
 
-        with(new MessageBag())->setSessionStore($session)->save();
+        $this->assertNull((new MessageBag())->setSessionStore($session)->save());
     }
 
     /**
