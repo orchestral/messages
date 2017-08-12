@@ -125,7 +125,3 @@ if ($message instanceof Orchestra\Messages\MessageBag) {
     }
 }
 ```
-
-## Resources
-
-* [Documentation](http://orchestraplatform.com/docs/latest/components/messages)
