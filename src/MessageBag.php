@@ -30,7 +30,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return $this
      */
-    public function setSessionStore(Session $session)
+    public function setSessionStore(Session $session): self
     {
         $this->session  = $session;
         $this->instance = null;
@@ -43,7 +43,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return \Illuminate\Contracts\Session\Session
      */
-    public function getSessionStore()
+    public function getSessionStore(): Session
     {
         return $this->session;
     }
@@ -70,7 +70,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return static
      */
-    public function retrieve()
+    public function retrieve(): MessageBag
     {
         $messages = null;
 
@@ -95,7 +95,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return void
      */
-    public function save()
+    public function save(): void
     {
         $this->session->flash('message', $this->serialize());
         $this->instance = null;
@@ -106,7 +106,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return string   serialize of this instance
      */
-    public function serialize()
+    public function serialize(): string
     {
         return serialize($this->messages);
     }
