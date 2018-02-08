@@ -32,7 +32,7 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function setSessionStore(Session $session): self
     {
-        $this->session  = $session;
+        $this->session = $session;
         $this->instance = null;
 
         return $this;

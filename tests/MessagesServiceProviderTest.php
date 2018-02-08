@@ -11,19 +11,15 @@ class MessagesServiceProviderTest extends TestCase
     /**
      * Teardown the test environment.
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         m::close();
     }
 
-    /**
-     * Test Orchestra\Support\MessagesServiceProvider::register() method.
-     *
-     * @test
-     */
-    public function testRegisterMethod()
+    /** @test */
+    public function it_can_register_expected_services()
     {
-        $app     = m::mock('\Illuminate\Container\Container');
+        $app = m::mock('\Illuminate\Container\Container');
         $session = m::mock('\Illuminate\Session\Store');
 
         $app->shouldReceive('singleton')->once()->with('orchestra.messages', m::type('Closure'))

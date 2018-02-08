@@ -11,17 +11,13 @@ class MessageBagTest extends TestCase
     /**
      * Teardown the test environment.
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         m::close();
     }
 
-    /**
-     * Test Orchestra\Support\MessageBag::make() method.
-     *
-     * @test
-     */
-    public function testMakeMethod()
+    /** @test */
+    public function it_can_make_a_message_instance()
     {
         $session = m::mock('\Illuminate\Session\Store');
 
@@ -38,12 +34,8 @@ class MessageBagTest extends TestCase
         $this->assertEquals($session, $message->getSessionStore());
     }
 
-    /**
-     * Test Orchestra\Messages\MessageBag::save() method.
-     *
-     * @test
-     */
-    public function testSaveMethod()
+    /** @test */
+    public function it_can_flash_empty_message_to_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('flash')->once()->andReturn(true);
@@ -51,13 +43,8 @@ class MessageBagTest extends TestCase
         $this->assertNull((new MessageBag())->setSessionStore($session)->save());
     }
 
-    /**
-     * Test serializing and storing Orchestra\Messages\MessageBag over
-     * Session.
-     *
-     * @test
-     */
-    public function testStoreMethod()
+    /** @test */
+    public function it_can_store_messages_to_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
 
@@ -78,13 +65,8 @@ class MessageBagTest extends TestCase
         $message->save();
     }
 
-    /**
-     * Test un-serializing and retrieving Orchestra\Messages\MessageBag over
-     * Session.
-     *
-     * @test
-     */
-    public function testRetrieveMethod()
+    /** @test */
+    public function it_can_retrieve_message_from_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('has')->once()->andReturn(true)
@@ -99,13 +81,8 @@ class MessageBagTest extends TestCase
         $this->assertEquals(['Goodbye'], $retrieve->get('bye'));
     }
 
-    /**
-     * Test un-serializing and extending Orchestra\Messages\MessageBag over
-     * Session.
-     *
-     * @test
-     */
-    public function testExtendMethod()
+    /** @test */
+    public function it_can_extend_messages_to_current_request()
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('has')->once()->andReturn(true)
@@ -116,7 +93,7 @@ class MessageBagTest extends TestCase
             $msg->add('hello', 'Hi Orchestra Platform');
         };
 
-        $stub   = (new MessageBag())->setSessionStore($session);
+        $stub = (new MessageBag())->setSessionStore($session);
         $output = $stub->extend($callback);
 
         $retrieve = $stub->retrieve();
