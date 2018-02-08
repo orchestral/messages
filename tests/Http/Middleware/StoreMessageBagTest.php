@@ -14,18 +14,13 @@ class StoreMessageBagTest extends TestCase
     /**
      * Teardown the test environment.
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         m::close();
     }
 
-    /**
-     * Test Orchestra\Messages\Http\Middleware\StoreMessageBag::handle()
-     * method.
-     *
-     * @test
-     */
-    public function testHandleMethod()
+    /** @test */
+    public function it_handle_as_http_middleware()
     {
         $app = m::mock(Application::class);
         $messages = m::mock(MessageBag::class);
@@ -43,4 +38,3 @@ class StoreMessageBagTest extends TestCase
         $this->assertEquals('foo', $stub->handle($request, $next));
     }
 }
-

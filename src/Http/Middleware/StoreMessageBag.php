@@ -13,6 +13,7 @@ class StoreMessageBag
      * @var \Illuminate\Contracts\Foundation\Application
      */
     protected $app;
+
     /**
      * Create a new middleware instance.
      *
