@@ -70,7 +70,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return static
      */
-    public function retrieve(): MessageBag
+    public function retrieve(): self
     {
         $messages = null;
 

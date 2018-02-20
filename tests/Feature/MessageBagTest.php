@@ -1,37 +1,25 @@
 <?php
 
-namespace Orchestra\Messages\TestCase;
+namespace Orchestra\Messages\TestCase\Feature;
 
 use Mockery as m;
-use PHPUnit\Framework\TestCase;
-use Orchestra\Messages\MessageBag;
+use Orchestra\Support\Facades\Messages;
 
 class MessageBagTest extends TestCase
 {
-    /**
-     * Teardown the test environment.
-     */
-    protected function tearDown(): void
-    {
-        m::close();
-    }
-
     /** @test */
     public function it_can_make_a_message_instance()
     {
-        $session = m::mock('\Illuminate\Session\Store');
+        Messages::add('welcome', 'Hello world');
+        Messages::setFormat();
 
-        $message = (new MessageBag())->setSessionStore($session);
-        $message->add('welcome', 'Hello world');
-        $message->setFormat();
+        $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $this->app['orchestra.messages']);
+        $this->assertEquals(['Hello world'], Messages::get('welcome'));
 
-        $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $message);
-        $this->assertEquals(['Hello world'], $message->get('welcome'));
+        Messages::add('welcome', 'Hi Foobar')
+            ->add('welcome', 'Heya Admin');
 
-        $message->add('welcome', 'Hi Foobar')->add('welcome', 'Heya Admin');
-        $this->assertEquals(['Hello world', 'Hi Foobar', 'Heya Admin'], $message->get('welcome'));
-
-        $this->assertEquals($session, $message->getSessionStore());
+        $this->assertEquals(['Hello world', 'Hi Foobar', 'Heya Admin'], Messages::get('welcome'));
     }
 
     /** @test */
@@ -40,7 +28,7 @@ class MessageBagTest extends TestCase
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('flash')->once()->andReturn(true);
 
-        $this->assertNull((new MessageBag())->setSessionStore($session)->save());
+        $this->assertNull(Messages::setSessionStore($session)->save());
     }
 
     /** @test */
@@ -50,11 +38,11 @@ class MessageBagTest extends TestCase
 
         $session->shouldReceive('flash')->once()->andReturn(true);
 
-        $message = (new MessageBag())->setSessionStore($session);
-        $message->add('hello', 'Hi World');
-        $message->add('bye', 'Goodbye');
+        Messages::setSessionStore($session);
+        Messages::add('hello', 'Hi World')
+                ->add('bye', 'Goodbye');
 
-        $serialize = $message->serialize();
+        $serialize = Messages::serialize();
 
         $this->assertTrue(is_string($serialize));
         $this->assertContains('hello', $serialize);
@@ -62,7 +50,7 @@ class MessageBagTest extends TestCase
         $this->assertContains('bye', $serialize);
         $this->assertContains('Goodbye', $serialize);
 
-        $message->save();
+        Messages::save();
     }
 
     /** @test */
@@ -73,7 +61,7 @@ class MessageBagTest extends TestCase
             ->shouldReceive('pull')->once()
                 ->andReturn('a:2:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}s:3:"bye";a:1:{i:0;s:7:"Goodbye";}}');
 
-        $retrieve = (new MessageBag())->setSessionStore($session)->retrieve();
+        $retrieve = Messages::setSessionStore($session)->retrieve();
         $retrieve->setFormat();
 
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
@@ -93,7 +81,7 @@ class MessageBagTest extends TestCase
             $msg->add('hello', 'Hi Orchestra Platform');
         };
 
-        $stub = (new MessageBag())->setSessionStore($session);
+        $stub = Messages::setSessionStore($session);
         $output = $stub->extend($callback);
 
         $retrieve = $stub->retrieve();
