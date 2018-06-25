@@ -30,7 +30,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return $this
      */
-    public function setSessionStore(Session $session): self
+    public function setSessionStore(Session $session)
     {
         $this->session = $session;
         $this->instance = null;
@@ -70,7 +70,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return static
      */
-    public function retrieve(): self
+    public function retrieve()
     {
         $messages = null;
 
