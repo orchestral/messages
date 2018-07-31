@@ -8,6 +8,7 @@ Messages Component bring a unified notification support for Laravel and Orchestr
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads)](https://packagist.org/packages/orchestra/messages)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/messages/v/unstable)](//packagist.org/packages/orchestra/messages)
 [![License](https://poser.pugx.org/orchestra/messages/license)](https://packagist.org/packages/orchestra/messages)
+[![Coverage Status](https://coveralls.io/repos/github/orchestral/messages/badge.svg?branch=3.6)](https://coveralls.io/github/orchestral/messages?branch=3.6)
 
 ## Table of Content
 
@@ -41,7 +42,7 @@ To install through composer, simply put the following in your `composer.json` fi
 ```json
 {
     "require": {
-        "orchestra/messages": "~3.0"
+        "orchestra/messages": "^3.0"
     }
 }
 ```
@@ -52,7 +53,7 @@ And then run `composer install` from the terminal.
 
 Above installation can also be simplify by using the following command:
 
-    composer require "orchestra/messages=~3.0"
+    composer require "orchestra/messages=^3.0"
 
 
 ## Configuration
