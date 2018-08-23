@@ -2,6 +2,15 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `orchestra/messages`.
 
+## 3.7.0 
+
+Released: 2018-08-23
+
+### Changes
+
+* Update support for Laravel Framework v5.7.
+* Disable `allow_classes` when running `unserialize()`.
+
 ## 3.6.1
 
 Released: 2018-08-28
@@ -25,11 +34,3 @@ Released: 2017-08-12
 ### Changes
 
 * Update support for Laravel Framework v5.5.
-
-## 3.4.0 
-
-Released: 2017-01-20
-
-### Changes
-
-* Update support for Laravel Framework v5.4.
