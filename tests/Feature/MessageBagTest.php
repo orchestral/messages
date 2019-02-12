@@ -45,10 +45,10 @@ class MessageBagTest extends TestCase
         $serialize = Messages::serialize();
 
         $this->assertTrue(is_string($serialize));
-        $this->assertContains('hello', $serialize);
-        $this->assertContains('Hi World', $serialize);
-        $this->assertContains('bye', $serialize);
-        $this->assertContains('Goodbye', $serialize);
+        $this->assertStringContainsString('hello', $serialize);
+        $this->assertStringContainsString('Hi World', $serialize);
+        $this->assertStringContainsString('bye', $serialize);
+        $this->assertStringContainsString('Goodbye', $serialize);
 
         Messages::save();
     }
