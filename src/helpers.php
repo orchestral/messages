@@ -2,7 +2,7 @@
 
 use Orchestra\Messages\MessageBag;
 
-if (! function_exists('messages')) {
+if (! \function_exists('messages')) {
     /**
      * Add a message to the bag.
      *
@@ -13,6 +13,8 @@ if (! function_exists('messages')) {
      */
     function messages(string $key, $message): MessageBag
     {
-        return app('orchestra.messages')->add($key, value($message));
+        return \app('orchestra.messages')->add(
+            $key, \value($message)
+        );
     }
 }
