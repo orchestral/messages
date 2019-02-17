@@ -3,12 +3,12 @@ Messages Component for Laravel and Orchestra Platform
 
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
-[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/messages)
+[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=3.8)](https://travis-ci.org/orchestral/messages)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/version)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads)](https://packagist.org/packages/orchestra/messages)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/messages/v/unstable)](//packagist.org/packages/orchestra/messages)
 [![License](https://poser.pugx.org/orchestra/messages/license)](https://packagist.org/packages/orchestra/messages)
-[![Coverage Status](https://coveralls.io/repos/github/orchestral/messages/badge.svg?branch=master)](https://coveralls.io/github/orchestral/messages?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/orchestral/messages/badge.svg?branch=3.8)](https://coveralls.io/github/orchestral/messages?branch=3.8)
 
 ## Table of Content
 
@@ -25,15 +25,10 @@ Messages Component bring a unified notification support for Laravel and Orchestr
 
 Laravel    | Messages
 :----------|:----------
- 4.2.x     | 2.2.x
- 5.0.x     | 3.0.x
- 5.1.x     | 3.1.x
- 5.2.x     | 3.2.x
- 5.3.x     | 3.3.x
- 5.4.x     | 3.4.x
  5.5.x     | 3.5.x
  5.6.x     | 3.6.x
  5.7.x     | 3.7.x
+ 5.8.x     | 3.8.x@dev
 
 ## Installation
 
@@ -42,7 +37,7 @@ To install through composer, simply put the following in your `composer.json` fi
 ```json
 {
     "require": {
-        "orchestra/messages": "^3.0"
+        "orchestra/messages": "^3.5"
     }
 }
 ```
@@ -53,7 +48,7 @@ And then run `composer install` from the terminal.
 
 Above installation can also be simplify by using the following command:
 
-    composer require "orchestra/messages=^3.0"
+    composer require "orchestra/messages=^3.5"
 
 
 ## Configuration
