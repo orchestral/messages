@@ -74,15 +74,15 @@ class MessageBag extends Message implements MessageBagContract
     {
         $messages = null;
 
-        if (is_null($this->instance)) {
+        if (\is_null($this->instance)) {
             $this->instance = new static();
             $this->instance->setSessionStore($this->session);
 
             if ($this->session->has('message')) {
-                $messages = unserialize($this->session->pull('message'), ['allowed_classes' => false]);
+                $messages = \unserialize($this->session->pull('message'), ['allowed_classes' => false]);
             }
 
-            if (is_array($messages)) {
+            if (\is_array($messages)) {
                 $this->instance->merge($messages);
             }
         }
@@ -108,6 +108,6 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function serialize(): string
     {
-        return serialize($this->messages);
+        return \serialize($this->messages);
     }
 }

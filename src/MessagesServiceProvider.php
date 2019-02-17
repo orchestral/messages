@@ -30,7 +30,7 @@ class MessagesServiceProvider extends MiddlewareServiceProvider
     public function register()
     {
         $this->app->singleton('orchestra.messages', function ($app) {
-            return tap(new MessageBag(), function ($message) use ($app) {
+            return \tap(new MessageBag(), function ($message) use ($app) {
                 $message->setSessionStore($app->make('session.store'));
             });
         });
