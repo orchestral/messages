@@ -1,6 +1,7 @@
 <?php
 
-use Orchestra\Messages\MessageBag;
+use Orchestra\Support\Facades\Messages;
+use Orchestra\Contracts\Messages\MessageBag;
 
 if (! \function_exists('messages')) {
     /**
@@ -9,12 +10,10 @@ if (! \function_exists('messages')) {
      * @param  string  $key
      * @param  string|callable  $message
      *
-     * @return \Orchestra\Messages\MessageBag
+     * @return \Orchestra\Contracts\Messages\MessageBag
      */
     function messages(string $key, $message): MessageBag
     {
-        return \app('orchestra.messages')->add(
-            $key, \value($message)
-        );
+        return Messages::add($key, \value($message));
     }
 }
