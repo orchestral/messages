@@ -29,6 +29,7 @@ class MessageBagTest extends TestCase
         $session->shouldReceive('flash')->once()->andReturn(true);
 
         $this->assertNull(Messages::setSessionStore($session)->save());
+        $this->assertSame($session, Messages::getSessionStore());
     }
 
     /** @test */
@@ -49,6 +50,7 @@ class MessageBagTest extends TestCase
         $this->assertStringContainsString('Hi World', $serialize);
         $this->assertStringContainsString('bye', $serialize);
         $this->assertStringContainsString('Goodbye', $serialize);
+        $this->assertSame($session, Messages::getSessionStore());
 
         Messages::save();
     }
@@ -64,6 +66,7 @@ class MessageBagTest extends TestCase
         $retrieve = Messages::setSessionStore($session)->retrieve();
         $retrieve->setFormat();
 
+        $this->assertSame($session, Messages::getSessionStore());
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
         $this->assertEquals(['Hi World'], $retrieve->get('hello'));
         $this->assertEquals(['Goodbye'], $retrieve->get('bye'));
@@ -87,6 +90,7 @@ class MessageBagTest extends TestCase
         $retrieve = $stub->retrieve();
         $retrieve->setFormat();
 
+        $this->assertSame($session, Messages::getSessionStore());
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $output);
         $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
         $this->assertEquals(['Hi World', 'Hi Orchestra Platform'], $retrieve->get('hello'));
