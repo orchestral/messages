@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchestra\Messages\TestCase\Feature\Http\Middleware;
+namespace Orchestra\Messages\Tests\Feature\Http\Middleware;
 
 use Mockery as m;
 use Illuminate\Http\Request;
