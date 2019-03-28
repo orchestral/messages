@@ -21,7 +21,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Orchestra\\Messages\\TestCase\\" : "tests/"
+            "Orchestra\\Messages\\Tests\\" : "tests/"
         }
     },
     "require": {
