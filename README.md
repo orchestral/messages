@@ -3,12 +3,12 @@ Messages Component for Laravel and Orchestra Platform
 
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
-[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=master)](https://travis-ci.org/orchestral/messages)
+[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=3.9)](https://travis-ci.org/orchestral/messages)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/version)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads)](https://packagist.org/packages/orchestra/messages)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/messages/v/unstable)](//packagist.org/packages/orchestra/messages)
 [![License](https://poser.pugx.org/orchestra/messages/license)](https://packagist.org/packages/orchestra/messages)
-[![Coverage Status](https://coveralls.io/repos/github/orchestral/messages/badge.svg?branch=master)](https://coveralls.io/github/orchestral/messages?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/orchestral/messages/badge.svg?branch=3.9)](https://coveralls.io/github/orchestral/messages?branch=3.9)
 
 ## Table of Content
 
@@ -29,6 +29,7 @@ Laravel    | Messages
  5.6.x     | 3.6.x
  5.7.x     | 3.7.x
  5.8.x     | 3.8.x
+ 5.9.x     | 3.9.x@dev
 
 ## Installation
 
