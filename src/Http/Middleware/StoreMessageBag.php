@@ -17,7 +17,7 @@ class StoreMessageBag
      */
     public function handle($request, Closure $next)
     {
-        return \tap($next($request), function () {
+        return \tap($next($request), static function () {
             Messages::save();
         });
     }
