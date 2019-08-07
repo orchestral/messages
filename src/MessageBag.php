@@ -22,7 +22,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @var \Illuminate\Support\MessageBag
      */
-    protected $extender;
+    protected $messageBag;
 
     /**
      * Set the session store.
@@ -59,9 +59,9 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function extend(Closure $callback)
     {
-        return \tap($this->copy(), static function ($extender) use ($callback) {
-            $callback($extender);
-        });
+        $messageBag = $this->retrieve();
+
+        $callback($messageBag);
 
         return $this;
     }
@@ -88,11 +88,12 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function copy(): Message
     {
-        if (\is_null($this->extender)) {
-            $this->extender = new Message($this->messages());
+        if (! $this->messageBag instanceof Message) {
+            $this->messageBag = new Message();
+            $this->messageBag->merge($this->messages());
         }
 
-        return $this->extender;
+        return $this->messageBag;
     }
 
     /**
@@ -104,7 +105,7 @@ class MessageBag extends Message implements MessageBagContract
     {
         $this->session->flash('message', $this->messages());
 
-        $this->extender = null;
+        $this->messageBag = null;
     }
 
     /**
