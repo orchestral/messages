@@ -13,7 +13,7 @@ class MessageBagTest extends TestCase
         Messages::add('welcome', 'Hello world');
         Messages::setFormat();
 
-        $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $this->app['orchestra.messages']);
+        $this->assertInstanceOf('Orchestra\Messages\MessageBag', $this->app['orchestra.messages']);
         $this->assertEquals(['Hello world'], Messages::get('welcome'));
 
         Messages::add('welcome', 'Hi Foobar')
@@ -67,7 +67,7 @@ class MessageBagTest extends TestCase
         $retrieve->setFormat();
 
         $this->assertSame($session, Messages::getSessionStore());
-        $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
+        $this->assertInstanceOf('Illuminate\Support\MessageBag', $retrieve);
         $this->assertEquals(['Hi World'], $retrieve->get('hello'));
         $this->assertEquals(['Goodbye'], $retrieve->get('bye'));
     }
@@ -89,8 +89,8 @@ class MessageBagTest extends TestCase
         $retrieve->setFormat();
 
         $this->assertSame($session, Messages::getSessionStore());
-        $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $output);
-        $this->assertInstanceOf('\Orchestra\Messages\MessageBag', $retrieve);
+        $this->assertInstanceOf('Illuminate\Support\MessageBag', $output);
+        $this->assertInstanceOf('Illuminate\Support\MessageBag', $retrieve);
         $this->assertEquals(['Hi World', 'Hi Orchestra Platform'], $retrieve->get('hello'));
     }
 }

@@ -18,6 +18,13 @@ class MessageBag extends Message implements MessageBagContract
     protected $session;
 
     /**
+     * Carbon copy for MessageBag.
+     *
+     * @var \Illuminate\Support\MessageBag
+     */
+    protected $extender;
+
+    /**
      * Set the session store.
      *
      * @param  \Illuminate\Contracts\Session\Session  $session
@@ -48,11 +55,13 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @param  \Closure  $callback
      *
-     * @return static
+     * @return \Illuminate\Support\MessageBag
      */
     public function extend(Closure $callback)
     {
-        $callback($this->retrieve());
+        return \tap($this->retrieve(), static function ($extender) use ($callback) {
+            $callback($extender);
+        });
 
         return $this;
     }
@@ -61,11 +70,15 @@ class MessageBag extends Message implements MessageBagContract
      * Retrieve Message instance from Session, the data should be in
      * serialize, so we need to unserialize it first.
      *
-     * @return static
+     * @return \Illuminate\Support\MessageBag
      */
     public function retrieve()
     {
-        return $this;
+        if (\is_null($this->extender)) {
+            $this->extender = new Message($this->messages());
+        }
+
+        return $this->extender;
     }
 
     /**
@@ -76,6 +89,8 @@ class MessageBag extends Message implements MessageBagContract
     public function save(): void
     {
         $this->session->flash('message', $this->messages());
+
+        $this->extender = null;
     }
 
     /**
