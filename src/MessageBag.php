@@ -58,27 +58,13 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return \Illuminate\Contracts\Support\MessageBag
      */
-    public function extend(Closure $callback)
+    public function extend(Closure $callback): MessageContract
     {
-        $messageBag = $this->retrieve();
+        $messageBag = $this->copy();
 
         $callback($messageBag);
 
         return $this;
-    }
-
-    /**
-     * Retrieve Message instance from Session, the data should be in
-     * serialize, so we need to unserialize it first.
-     *
-     * @return \Illuminate\Contracts\Support\MessageBag
-     *
-     * @deprecated v3.8.2
-     * @see static::copy()
-     */
-    public function retrieve()
-    {
-        return $this->copy();
     }
 
     /**
@@ -107,15 +93,5 @@ class MessageBag extends Message implements MessageBagContract
         $this->session->flash('message', $this->messages());
 
         $this->messageBag = null;
-    }
-
-    /**
-     * Compile the instance into serialize.
-     *
-     * @return string   serialize of this instance
-     */
-    public function serialize(): string
-    {
-        return $this->toJson();
     }
 }

@@ -44,13 +44,6 @@ class MessageBagTest extends TestCase
         Messages::add('hello', 'Hi World')
                 ->add('bye', 'Goodbye');
 
-        $serialize = Messages::serialize();
-
-        $this->assertTrue(is_string($serialize));
-        $this->assertStringContainsString('hello', $serialize);
-        $this->assertStringContainsString('Hi World', $serialize);
-        $this->assertStringContainsString('bye', $serialize);
-        $this->assertStringContainsString('Goodbye', $serialize);
         $this->assertSame($session, Messages::getSessionStore());
 
         Messages::save();
