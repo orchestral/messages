@@ -26,7 +26,8 @@ class MessageBagTest extends TestCase
     public function it_can_flash_empty_message_to_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
-        $session->shouldReceive('flash')->once()->andReturn(true);
+        $session->shouldReceive('pull')->once()->with('message', [])->andReturn([])
+            ->shouldReceive('flash')->once()->andReturn(true);
 
         $this->assertNull(Messages::setSessionStore($session)->save());
         $this->assertSame($session, Messages::getSessionStore());
@@ -36,8 +37,8 @@ class MessageBagTest extends TestCase
     public function it_can_store_messages_to_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
-
-        $session->shouldReceive('flash')->once()->andReturn(true);
+        $session->shouldReceive('pull')->once()->with('message', [])->andReturn([])
+            ->shouldReceive('flash')->once()->andReturn(true);
 
         Messages::setSessionStore($session);
         Messages::add('hello', 'Hi World')
@@ -59,9 +60,8 @@ class MessageBagTest extends TestCase
     public function it_can_retrieve_message_from_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
-        $session->shouldReceive('has')->once()->andReturn(true)
-            ->shouldReceive('pull')->once()
-                ->andReturn('a:2:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}s:3:"bye";a:1:{i:0;s:7:"Goodbye";}}');
+        $session->shouldReceive('pull')->once()->with('message', [])
+                ->andReturn(["hello" => [ "Hi World" ], "bye" => ["Goodbye"]]);
 
         $retrieve = Messages::setSessionStore($session)->retrieve();
         $retrieve->setFormat();
@@ -76,9 +76,7 @@ class MessageBagTest extends TestCase
     public function it_can_extend_messages_to_current_request()
     {
         $session = m::mock('\Illuminate\Session\Store');
-        $session->shouldReceive('has')->once()->andReturn(true)
-            ->shouldReceive('pull')->once()
-                ->andReturn('a:1:{s:5:"hello";a:1:{i:0;s:8:"Hi World";}}');
+        $session->shouldReceive('pull')->once()->with('message', [])->andReturn(["hello" => [ "Hi World" ]]);
 
         $callback = function ($msg) {
             $msg->add('hello', 'Hi Orchestra Platform');

@@ -3,7 +3,9 @@
 namespace Orchestra\Messages;
 
 use Closure;
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Contracts\Session\Session as SessionContract;
 use Illuminate\Support\MessageBag as Message;
 use Orchestra\Contracts\Messages\MessageBag as MessageBagContract;
 
@@ -17,23 +19,17 @@ class MessageBag extends Message implements MessageBagContract
     protected $session;
 
     /**
-     * Cached messages to be extends to current request.
-     *
-     * @var static
-     */
-    protected $instance;
-
-    /**
      * Set the session store.
      *
      * @param  \Illuminate\Contracts\Session\Session  $session
      *
      * @return $this
      */
-    public function setSessionStore(Session $session)
+    public function setSessionStore(SessionContract $session)
     {
         $this->session = $session;
-        $this->instance = null;
+
+        $this->merge($this->session->pull('message', []));
 
         return $this;
     }
@@ -43,7 +39,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return \Illuminate\Contracts\Session\Session
      */
-    public function getSessionStore(): Session
+    public function getSessionStore(): SessionContract
     {
         return $this->session;
     }
@@ -57,11 +53,9 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function extend(Closure $callback)
     {
-        $instance = $this->retrieve();
+        $callback($this->retrieve());
 
-        $callback($instance);
-
-        return $instance;
+        return $this;
     }
 
     /**
@@ -72,22 +66,7 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function retrieve()
     {
-        $messages = null;
-
-        if (\is_null($this->instance)) {
-            $this->instance = new static();
-            $this->instance->setSessionStore($this->session);
-
-            if ($this->session->has('message')) {
-                $messages = \unserialize($this->session->pull('message'), ['allowed_classes' => false]);
-            }
-
-            if (\is_array($messages)) {
-                $this->instance->merge($messages);
-            }
-        }
-
-        return $this->instance;
+        return $this;
     }
 
     /**
@@ -97,8 +76,7 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function save(): void
     {
-        $this->session->flash('message', $this->serialize());
-        $this->instance = null;
+        $this->session->flash('message', $this->messages());
     }
 
     /**
@@ -108,6 +86,6 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function serialize(): string
     {
-        return \serialize($this->messages);
+        return $this->toJson();
     }
 }
