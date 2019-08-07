@@ -3,8 +3,9 @@
 namespace Orchestra\Messages;
 
 use Closure;
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag as Message;
+use Illuminate\Contracts\Session\Session as SessionContract;
 use Orchestra\Contracts\Messages\MessageBag as MessageBagContract;
 
 class MessageBag extends Message implements MessageBagContract
@@ -17,11 +18,11 @@ class MessageBag extends Message implements MessageBagContract
     protected $session;
 
     /**
-     * Cached messages to be extends to current request.
+     * Carbon copy for MessageBag.
      *
-     * @var static
+     * @var \Illuminate\Support\MessageBag
      */
-    protected $instance;
+    protected $extender;
 
     /**
      * Set the session store.
@@ -30,10 +31,11 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return $this
      */
-    public function setSessionStore(Session $session)
+    public function setSessionStore(SessionContract $session)
     {
         $this->session = $session;
-        $this->instance = null;
+
+        $this->merge($this->session->pull('message', []));
 
         return $this;
     }
@@ -43,7 +45,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @return \Illuminate\Contracts\Session\Session
      */
-    public function getSessionStore(): Session
+    public function getSessionStore(): SessionContract
     {
         return $this->session;
     }
@@ -53,41 +55,44 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @param  \Closure  $callback
      *
-     * @return static
+     * @return \Illuminate\Support\MessageBag
      */
     public function extend(Closure $callback)
     {
-        $instance = $this->retrieve();
+        return \tap($this->copy(), static function ($extender) use ($callback) {
+            $callback($extender);
+        });
 
-        $callback($instance);
-
-        return $instance;
+        return $this;
     }
 
     /**
      * Retrieve Message instance from Session, the data should be in
      * serialize, so we need to unserialize it first.
      *
-     * @return static
+     * @return \Illuminate\Support\MessageBag
+     *
+     * @deprecated v3.8.2
+     * @see static::copy()
      */
     public function retrieve()
     {
-        $messages = null;
+        return $this->copy();
+    }
 
-        if (\is_null($this->instance)) {
-            $this->instance = new static();
-            $this->instance->setSessionStore($this->session);
-
-            if ($this->session->has('message')) {
-                $messages = \unserialize($this->session->pull('message'), ['allowed_classes' => false]);
-            }
-
-            if (\is_array($messages)) {
-                $this->instance->merge($messages);
-            }
+    /**
+     * Retrieve Message instance from Session, the data should be in
+     * serialize, so we need to unserialize it first.
+     *
+     * @return \Illuminate\Support\MessageBag
+     */
+    public function copy(): Message
+    {
+        if (\is_null($this->extender)) {
+            $this->extender = new Message($this->messages());
         }
 
-        return $this->instance;
+        return $this->extender;
     }
 
     /**
@@ -97,8 +102,9 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function save(): void
     {
-        $this->session->flash('message', $this->serialize());
-        $this->instance = null;
+        $this->session->flash('message', $this->messages());
+
+        $this->extender = null;
     }
 
     /**
@@ -108,6 +114,6 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function serialize(): string
     {
-        return \serialize($this->messages);
+        return $this->toJson();
     }
 }
