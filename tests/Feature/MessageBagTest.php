@@ -57,19 +57,19 @@ class MessageBagTest extends TestCase
     }
 
     /** @test */
-    public function it_can_retrieve_message_from_session()
+    public function it_can_copy_message_from_session()
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('pull')->once()->with('message', [])
                 ->andReturn(['hello' => ['Hi World'], 'bye' => ['Goodbye']]);
 
-        $retrieve = Messages::setSessionStore($session)->retrieve();
-        $retrieve->setFormat();
+        $clone = Messages::setSessionStore($session)->copy();
+        $clone->setFormat();
 
         $this->assertSame($session, Messages::getSessionStore());
-        $this->assertInstanceOf('Illuminate\Support\MessageBag', $retrieve);
-        $this->assertEquals(['Hi World'], $retrieve->get('hello'));
-        $this->assertEquals(['Goodbye'], $retrieve->get('bye'));
+        $this->assertInstanceOf('Illuminate\Support\MessageBag', $clone);
+        $this->assertEquals(['Hi World'], $clone->get('hello'));
+        $this->assertEquals(['Goodbye'], $clone->get('bye'));
     }
 
     /** @test */
@@ -85,12 +85,12 @@ class MessageBagTest extends TestCase
         $stub = Messages::setSessionStore($session);
         $output = $stub->extend($callback);
 
-        $retrieve = $stub->retrieve();
-        $retrieve->setFormat();
+        $clone = $stub->copy();
+        $clone->setFormat();
 
         $this->assertSame($session, Messages::getSessionStore());
         $this->assertInstanceOf('Illuminate\Support\MessageBag', $output);
-        $this->assertInstanceOf('Illuminate\Support\MessageBag', $retrieve);
-        $this->assertEquals(['Hi World', 'Hi Orchestra Platform'], $retrieve->get('hello'));
+        $this->assertInstanceOf('Illuminate\Support\MessageBag', $clone);
+        $this->assertEquals(['Hi World', 'Hi Orchestra Platform'], $clone->get('hello'));
     }
 }

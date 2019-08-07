@@ -59,7 +59,7 @@ class MessageBag extends Message implements MessageBagContract
      */
     public function extend(Closure $callback)
     {
-        return \tap($this->retrieve(), static function ($extender) use ($callback) {
+        return \tap($this->copy(), static function ($extender) use ($callback) {
             $callback($extender);
         });
 
@@ -71,8 +71,22 @@ class MessageBag extends Message implements MessageBagContract
      * serialize, so we need to unserialize it first.
      *
      * @return \Illuminate\Support\MessageBag
+     *
+     * @deprecated v3.8.2
+     * @see static::copy()
      */
     public function retrieve()
+    {
+        return $this->copy();
+    }
+
+    /**
+     * Retrieve Message instance from Session, the data should be in
+     * serialize, so we need to unserialize it first.
+     *
+     * @return \Illuminate\Support\MessageBag
+     */
+    public function copy(): Message
     {
         if (\is_null($this->extender)) {
             $this->extender = new Message($this->messages());
