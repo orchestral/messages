@@ -61,7 +61,7 @@ class MessageBagTest extends TestCase
     {
         $session = m::mock('\Illuminate\Session\Store');
         $session->shouldReceive('pull')->once()->with('message', [])
-                ->andReturn(["hello" => [ "Hi World" ], "bye" => ["Goodbye"]]);
+                ->andReturn(['hello' => ['Hi World'], 'bye' => ['Goodbye']]);
 
         $retrieve = Messages::setSessionStore($session)->retrieve();
         $retrieve->setFormat();
@@ -76,7 +76,7 @@ class MessageBagTest extends TestCase
     public function it_can_extend_messages_to_current_request()
     {
         $session = m::mock('\Illuminate\Session\Store');
-        $session->shouldReceive('pull')->once()->with('message', [])->andReturn(["hello" => [ "Hi World" ]]);
+        $session->shouldReceive('pull')->once()->with('message', [])->andReturn(['hello' => ['Hi World']]);
 
         $callback = function ($msg) {
             $msg->add('hello', 'Hi Orchestra Platform');

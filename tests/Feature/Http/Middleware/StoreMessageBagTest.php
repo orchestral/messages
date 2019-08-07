@@ -5,9 +5,7 @@ namespace Orchestra\Messages\Tests\Feature\Http\Middleware;
 use Mockery as m;
 use Illuminate\Http\Request;
 use Orchestra\Testbench\TestCase;
-use Orchestra\Support\Facades\Messages;
 use Orchestra\Contracts\Messages\MessageBag;
-use Illuminate\Contracts\Foundation\Application;
 use Orchestra\Messages\Http\Middleware\StoreMessageBag;
 
 class StoreMessageBagTest extends TestCase

@@ -3,10 +3,9 @@
 namespace Orchestra\Messages;
 
 use Closure;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Contracts\Session\Session as SessionContract;
 use Illuminate\Support\MessageBag as Message;
+use Illuminate\Contracts\Session\Session as SessionContract;
 use Orchestra\Contracts\Messages\MessageBag as MessageBagContract;
 
 class MessageBag extends Message implements MessageBagContract
