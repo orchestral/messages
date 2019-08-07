@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag as Message;
 use Illuminate\Contracts\Session\Session as SessionContract;
+use Illuminate\Contracts\Support\MessageBag as MessageContract;
 use Orchestra\Contracts\Messages\MessageBag as MessageBagContract;
 
 class MessageBag extends Message implements MessageBagContract
@@ -55,7 +56,7 @@ class MessageBag extends Message implements MessageBagContract
      *
      * @param  \Closure  $callback
      *
-     * @return \Illuminate\Support\MessageBag
+     * @return \Illuminate\Contracts\Support\MessageBag
      */
     public function extend(Closure $callback)
     {
@@ -70,7 +71,7 @@ class MessageBag extends Message implements MessageBagContract
      * Retrieve Message instance from Session, the data should be in
      * serialize, so we need to unserialize it first.
      *
-     * @return \Illuminate\Support\MessageBag
+     * @return \Illuminate\Contracts\Support\MessageBag
      *
      * @deprecated v3.8.2
      * @see static::copy()
@@ -84,11 +85,11 @@ class MessageBag extends Message implements MessageBagContract
      * Retrieve Message instance from Session, the data should be in
      * serialize, so we need to unserialize it first.
      *
-     * @return \Illuminate\Support\MessageBag
+     * @return \Illuminate\Contracts\Support\MessageBag
      */
-    public function copy(): Message
+    public function copy(): MessageContract
     {
-        if (! $this->messageBag instanceof Message) {
+        if (! $this->messageBag instanceof MessageContract) {
             $this->messageBag = new Message();
             $this->messageBag->merge($this->messages());
         }
