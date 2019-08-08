@@ -2,6 +2,14 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `orchestra/messages`.
 
+## 3.8.2
+
+Released: 2019-08-08
+
+### Changes
+
+* Refactor `Orchestra\Messages\MessageBag`.
+
 ## 3.8.1
 
 Released: 2019-08-04
