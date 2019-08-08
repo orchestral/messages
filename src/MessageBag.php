@@ -3,7 +3,6 @@
 namespace Orchestra\Messages;
 
 use Closure;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag as Message;
 use Illuminate\Contracts\Session\Session as SessionContract;
 use Illuminate\Contracts\Support\MessageBag as MessageContract;
@@ -64,7 +63,7 @@ class MessageBag extends Message implements MessageBagContract
 
         $callback($messageBag);
 
-        return $this;
+        return $messageBag;
     }
 
     /**
