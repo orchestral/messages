@@ -2,6 +2,7 @@
 
 namespace Orchestra\Messages;
 
+use Illuminate\Contracts\Container\Container;
 use Orchestra\Support\Providers\MiddlewareServiceProvider;
 
 class MessagesServiceProvider extends MiddlewareServiceProvider
@@ -29,7 +30,7 @@ class MessagesServiceProvider extends MiddlewareServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('orchestra.messages', static function ($app) {
+        $this->app->singleton('orchestra.messages', static function (Container $app) {
             return \tap(new MessageBag(), static function ($messageBag) use ($app) {
                 $messageBag->setSessionStore($app->make('session.store'));
             });
