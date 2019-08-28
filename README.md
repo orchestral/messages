@@ -112,7 +112,7 @@ Here's an example how you can display the message:
 ```php
 <?php
 
-$message = Messages::retrieve();
+$message = Messages::copy();
 
 if ($message instanceof Orchestra\Messages\MessageBag) {
     $message->setFormat('<div class="alert alert-:key">:message</div>');
