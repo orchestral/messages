@@ -2,6 +2,19 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `orchestra/messages`.
 
+## 4.0.0
+
+Released: 2019-08-29
+
+### Changes
+
+* Update support for Laravel Framework v6.0.
+
+### Removed
+
+* Remove deprecated `Orchestra\Messages\MessageBag::retrieve()`, use `Orchestra\Messages\MessageBag::copy()` instead.
+* Remove `Orchestra\Messages\MessageBag::serialize()` as it's no longer needed to properly serialize the flash message.
+
 ## 3.8.2
 
 Released: 2019-08-08
