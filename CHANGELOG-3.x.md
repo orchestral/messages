@@ -1,6 +1,11 @@
-# Changelog
+# Changelog for 3.x
 
 This changelog references the relevant changes (bug and security fixes) done to `orchestra/messages`.
+
+### Removed
+
+* Remove deprecated `Orchestra\Messages\MessageBag::retrieve()`, use `Orchestra\Messages\MessageBag::copy()` instead.
+* Remove `Orchestra\Messages\MessageBag::serialize()` as it's no longer needed to properly serialize the flash message.
 
 ## 3.8.2
 
