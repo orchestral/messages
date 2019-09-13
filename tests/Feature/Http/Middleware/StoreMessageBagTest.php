@@ -2,11 +2,11 @@
 
 namespace Orchestra\Messages\Tests\Feature\Http\Middleware;
 
-use Mockery as m;
 use Illuminate\Http\Request;
-use Orchestra\Testbench\TestCase;
+use Mockery as m;
 use Orchestra\Contracts\Messages\MessageBag;
 use Orchestra\Messages\Http\Middleware\StoreMessageBag;
+use Orchestra\Testbench\TestCase;
 
 class StoreMessageBagTest extends TestCase
 {
