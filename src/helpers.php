@@ -1,7 +1,7 @@
 <?php
 
-use Orchestra\Support\Facades\Messages;
 use Orchestra\Contracts\Messages\MessageBag;
+use Orchestra\Support\Facades\Messages;
 
 if (! \function_exists('messages')) {
     /**
