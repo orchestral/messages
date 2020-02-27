@@ -27,8 +27,6 @@ class MessageBag extends Message implements MessageBagContract
     /**
      * Set the session store.
      *
-     * @param  \Illuminate\Contracts\Session\Session  $session
-     *
      * @return $this
      */
     public function setSessionStore(SessionContract $session)
@@ -42,8 +40,6 @@ class MessageBag extends Message implements MessageBagContract
 
     /**
      * Get the session store.
-     *
-     * @return \Illuminate\Contracts\Session\Session
      */
     public function getSessionStore(): SessionContract
     {
@@ -52,10 +48,6 @@ class MessageBag extends Message implements MessageBagContract
 
     /**
      * Extend Messages instance from session.
-     *
-     * @param  \Closure  $callback
-     *
-     * @return \Illuminate\Contracts\Support\MessageBag
      */
     public function extend(Closure $callback): MessageContract
     {
@@ -69,8 +61,6 @@ class MessageBag extends Message implements MessageBagContract
     /**
      * Retrieve Message instance from Session, the data should be in
      * serialize, so we need to unserialize it first.
-     *
-     * @return \Illuminate\Contracts\Support\MessageBag
      */
     public function copy(): MessageContract
     {
@@ -84,8 +74,6 @@ class MessageBag extends Message implements MessageBagContract
 
     /**
      * Store current instance.
-     *
-     * @return void
      */
     public function save(): void
     {
