@@ -3,6 +3,9 @@
 namespace Orchestra\Messages;
 
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Routing\Router;
+use Laravel\Octane\Events\RequestReceived;
 use Orchestra\Support\Providers\MiddlewareServiceProvider;
 
 class MessagesServiceProvider extends MiddlewareServiceProvider
@@ -34,6 +37,25 @@ class MessagesServiceProvider extends MiddlewareServiceProvider
             return \tap(new MessageBag(), static function ($messageBag) use ($app) {
                 $messageBag->setSessionStore($app->make('session.store'));
             });
+        });
+    }
+
+    /**
+     * Bootstrap the application events.
+     *
+     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Contracts\Http\Kernel  $kernel
+     *
+     * @return void
+     */
+    public function boot(Router $router, Kernel $kernel)
+    {
+        parent::boot($router, $kernel);
+
+        $this->app['events']->listen(RequestReceived::class, function ($event) {
+            $event->sandbox->make('orchestra.messages')->setSessionStore(
+                $event->sandbox->make('session.store')
+            );
         });
     }
 }
