@@ -43,9 +43,6 @@ class MessagesServiceProvider extends MiddlewareServiceProvider
     /**
      * Bootstrap the application events.
      *
-     * @param  \Illuminate\Routing\Router  $router
-     * @param  \Illuminate\Contracts\Http\Kernel  $kernel
-     *
      * @return void
      */
     public function boot(Router $router, Kernel $kernel)
