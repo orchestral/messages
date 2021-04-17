@@ -3,7 +3,7 @@ Messages Component for Laravel and Orchestra Platform
 
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
-[![tests](https://github.com/orchestral/support/workflows/tests/badge.svg?branch=6.x)](https://github.com/orchestral/support/actions?query=workflow%3Atests+branch%3A6.x)
+[![tests](https://github.com/orchestral/messages/workflows/tests/badge.svg?branch=6.x)](https://github.com/orchestral/messages/actions?query=workflow%3Atests+branch%3A6.x)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/version)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads)](https://packagist.org/packages/orchestra/messages)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/messages/v/unstable)](//packagist.org/packages/orchestra/messages)
@@ -45,7 +45,7 @@ Add `Orchestra\Messages\MessagesServiceProvider` service provider in `config/app
 
 ### Aliases
 
-You might want to add `Orchestra\Support\Facades\Messages` to class aliases in `config/app.php`:
+You might want to add `Orchestra\messages\Facades\Messages` to class aliases in `config/app.php`:
 
 ```php
 'aliases' => [
