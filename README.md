@@ -3,23 +3,12 @@ Messages Component for Laravel and Orchestra Platform
 
 Messages Component bring a unified notification support for Laravel and Orchestra Platform.
 
-[![Build Status](https://travis-ci.org/orchestral/messages.svg?branch=6.x)](https://travis-ci.org/orchestral/messages)
+[![tests](https://github.com/orchestral/support/workflows/tests/badge.svg?branch=6.x)](https://github.com/orchestral/support/actions?query=workflow%3Atests+branch%3A6.x)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/messages/version)](https://packagist.org/packages/orchestra/messages)
 [![Total Downloads](https://poser.pugx.org/orchestra/messages/downloads)](https://packagist.org/packages/orchestra/messages)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/messages/v/unstable)](//packagist.org/packages/orchestra/messages)
 [![License](https://poser.pugx.org/orchestra/messages/license)](https://packagist.org/packages/orchestra/messages)
 [![Coverage Status](https://coveralls.io/repos/github/orchestral/messages/badge.svg?branch=6.x)](https://coveralls.io/github/orchestral/messages?branch=6.x)
-
-## Table of Content
-
-* [Version Compatibility](#version-compatibility)
-* [Installation](#installation)
-* [Configuration](#configuration)
-* [Usage](#usage)
-  - [Adding a Message](#adding-a-message)
-  - [Extending a Message to Current Request](#extending-a-message-to-current-request)
-  - [Displaying the Message in a View](#displaying-the-message-in-a-view)
-* [Changelog](https://github.com/orchestral/messages/releases)
 
 ## Version Compatibility
 
@@ -37,8 +26,9 @@ Laravel    | Messages
 
 To install through composer, run the following command from terminal:
 
-    composer require "orchestra/messages"
-
+```bash
+composer require "orchestra/messages"
+```
 
 ## Configuration
 
